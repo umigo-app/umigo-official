@@ -174,7 +174,7 @@ function PlanDetailCard({ plan, hangoutId, onClose, onApproach, onChat, join, on
           <div className="absolute -bottom-16 left-6 w-28 h-28">
             <NavLink to={`/user/${plan.id}`}>
               <img
-                src={plan.avatarUrl || 'https://randomuser.me/api/portraits/men/1.jpg'}
+                src={plan.avatarUrl || "/profile.jpg"}
                 alt={plan.name}
                 className="w-full h-full rounded-full object-cover border-4 border-white shadow-md"
               />

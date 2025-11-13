@@ -80,8 +80,8 @@ function Landing() {
               new Date(plan.start_time || plan.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) :
               'Time not set',
             location: plan.location || plan.address || 'Location not specified',
-            bannerImage: plan.banner_image_url || plan.bannerImage || 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1200&auto=format&fit=crop',
-            avatarUrl: plan.creator?.profileImage || plan.host?.profileImage || plan.avatarUrl || 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop'
+            bannerImage: plan.banner_image_url || plan.bannerImage,
+            avatarUrl: plan.creator?.profileImage || plan.host?.profileImage || plan.avatarUrl || '/profile.jpg'
           }));
 
           console.log('Formatted plans:', formattedPlans.length, 'plans');
@@ -299,7 +299,7 @@ function Landing() {
                         hangoutId={p.id} // Add hangoutId for API integration
                         glow={glowEnabled}
                         bannerImage={p.bannerImage}
-                        avatarUrl={p.host.image_url || p.avatarUrl}
+                        avatarUrl={p.host.image_url || p.avatarUrl || "/profile.jpg"}
                         name={p.host?.name || p.name}
                         subtitle={p.subtitle}
                         start_time={p.start_time}
@@ -320,7 +320,7 @@ function Landing() {
                     >
                       <SpotlightCard
                         glow={glowEnabled}
-                        avatarUrl={user.image_url || user.avatarUrl}
+                        avatarUrl={user.image_url || user.avatarUrl || "/profile.jpg"}
                         name={user.name}
                         time={user.time}
                         location={user.location}

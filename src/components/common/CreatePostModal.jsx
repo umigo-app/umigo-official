@@ -593,6 +593,7 @@ const CreatePostModal = ({ isOpen, onClose }) => {
                 onBlur={handleBlur('whatsapp_url')}
                 className={`w-full px-4 py-3 border ${errors.whatsapp_url && touched.whatsapp_url ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff5500] focus:border-transparent placeholder-gray-400`}
                 disabled={isSubmitting}
+                required
               />
               {errors.whatsapp_url && touched.whatsapp_url && (
                 <p className="mt-1 text-sm text-red-600">{errors.whatsapp_url}</p>

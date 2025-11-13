@@ -39,7 +39,7 @@ const Profile = () => {
       setProfileError(null);
 
       const userInfo = await userAPI.getCurrentUser();
-
+      console.log(userInfo);
       if (isMounted) {
 
         // The authAPI.getProfile() now returns response.user directly

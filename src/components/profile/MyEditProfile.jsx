@@ -49,6 +49,8 @@ const MyEditProfile = ({ onClose, onUpdate, currentUser }) => {
 
     try {
       const response = await userAPI.updateProfile(formData);
+      await userAPI.updateProfile(formData.image_url);
+      
       console.log("Profile update response:", response);
 
       toast.success('Profile updated successfully!');
@@ -81,7 +83,7 @@ const MyEditProfile = ({ onClose, onUpdate, currentUser }) => {
   };
 
   //UPLOAD IMAGE -->
-  const handleImageUpload = (e) => {
+  const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     if (file) {
       // Check file size (limit to 5MB)
@@ -107,6 +109,7 @@ const MyEditProfile = ({ onClose, onUpdate, currentUser }) => {
         toast.error('Error reading image file');
       };
       reader.readAsDataURL(file);
+      await useAuth.uploadProfilePicture(file);
     }
   };
 
